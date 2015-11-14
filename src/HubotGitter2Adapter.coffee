@@ -222,8 +222,7 @@ class HubotGitter2Adapter extends Adapter
     robotUser = @robot.brain.userForId(user.id())
     update = ->
       name = []
-      name.push dn if (dn = user.displayName())
-      name.push "(#{ n })" if (n = user.login()) and not dn or n.toLowerCase() isnt dn.toLowerCase()
+      name.push n if (n = user.login())
       d =
         login: user.login()
         name: if name.length then name.join(' ') else null
